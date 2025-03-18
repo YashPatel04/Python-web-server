@@ -1,0 +1,39 @@
+Below are the outputs from clients and server respectively.
+
+server:
+    PS D:\CINF_301\CSCI 304\ASSIGNMENT-1\part-3> python server.py
+    Yash's server is listening on port: 5000
+    New Thread: t0
+    Accepted connection from ('127.0.0.1', 60019)
+    New Thread: t1
+    Accepted connection from ('127.0.0.1', 60022)
+    New Thread: t2
+    Accepted connection from ('127.0.0.1', 60023)
+    New Thread: t2
+    Accepted connection from ('127.0.0.1', 60020)
+    New Thread: t2
+    Accepted connection from ('127.0.0.1', 60021) 
+
+client:
+/*
+    I wrote a test file(test.py) which
+    simuntaneously makes 5 requests to check 
+    the multithreaded server.
+*/
+    PS D:\CINF_301\CSCI 304\ASSIGNMENT-1\part-3> python test.py
+    Client 0: Starting request
+    Client 1: Starting request
+    Client 2: Starting request
+    Client 3: Starting request
+    Client 4: Starting request
+    Client 4: Status 200, Time: 2.06s
+    Client 4: Response length: 263 chars
+    Client 2: Status 200, Time: 2.06s
+    Client 2: Response length: 263 chars
+    Client 1: Status 200, Time: 2.08s
+    Client 3: Status 200, Time: 2.07s
+    Client 3: Response length: 263 chars
+    Client 0: Status 200, Time: 2.08s
+    Client 1: Response length: 263 chars
+    Client 0: Response length: 263 chars
+    All client requests completed

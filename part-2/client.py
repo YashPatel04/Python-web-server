@@ -1,10 +1,8 @@
-#import socket module
 from socket import *
-import sys # In order to terminate the program
+import sys 
 
 clientSocket = socket(AF_INET, SOCK_STREAM)
 
-#Establish the connection
 print('Trying to connect...')
 clientSocket.connect(('localhost', 5000))      
 print('Connected to the server successfully.')  
@@ -12,7 +10,7 @@ print('Connected to the server successfully.')
 try:
     request = "GET /HelloWorld.html HTTP/1.1\r\n"
     request += "Host: localhost\r\n"
-    request += "\r\n"  # Empty line to end headers
+    request += "\r\n"  
 
     clientSocket.send(request.encode())
     # response
@@ -25,11 +23,18 @@ try:
     
     print("Recieved response")
 
-    array = data.split("\r\n\r\n", 1)
-    if len(array) > 1:
-        body = array[1]
-        print(body)
-    print("connection closed !!")
+    status_line = data.split('\r\n')[0]
+    print(f"Status: {status_line}")
+
+    if status_line.__contains__("200"):
+        array = data.split("\r\n\r\n", 1)
+        if len(array) > 1:
+            body = array[1]
+            print(body)
+        print("connection closed !!")
+    else:
+        print("404: object not found.")
+    
 
 except Exception as e:
     print(f"Error: {e}")

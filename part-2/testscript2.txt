@@ -1,0 +1,10 @@
+PS D:\CINF_301\CSCI 304\ASSIGNMENT-1\part-2> python client.py
+Trying to connect...
+Connected to the server successfully.
+Recieved response
+Status: HTTP/1.1 404 NOT FOUND
+404: object not found.
+
+/*
+For this I triend to fetch a file that does not exist in the server
+*/
